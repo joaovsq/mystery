@@ -8,9 +8,12 @@
 #define MYSTERY_API __declspec(dllimport)
 #endif
 
+// all project essentials includes
+#include <iostream>
+#include <memory>
+
+
 namespace mystery {
 	void initialize();
-
-	void start();
 }
 

@@ -1,12 +1,14 @@
 ﻿#include "mystery.hpp"
 
-#include <iostream>
 
 namespace mystery {
 
 
 	MysteryApplication::MysteryApplication() {
-		Log::Init();
+		
+		// initializes all components
+		initialize();
+
 	}
 
 	MysteryApplication::~MysteryApplication() {

@@ -8,9 +8,4 @@ namespace mystery {
 		Log::Init();
 	}
 
-	// TODO: move this to another place and plan a better architecture
-	void start()
-	{
-	}
-
 }
