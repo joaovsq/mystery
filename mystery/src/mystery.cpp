@@ -1,6 +1,5 @@
 ﻿#include "mystery.hpp"
 
-
 namespace mystery {
 
 

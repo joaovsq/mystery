@@ -3,6 +3,8 @@
 # Compiler definitions / preprocessor defs
 add_compile_definitions(MYSTERY_BUILD_DLL)
 
+include_directories(${CMAKE_SOURCE_DIR}/mystery/src)
+
 # mystery source files
 set(MYSTERY_SRC 
 	src/log.cpp
