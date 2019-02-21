@@ -1,3 +1,6 @@
 [submodule "mystery/dependencies/spdlog"]
 	path = mystery/dependencies/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "mystery/dependencies/mystery-dependencies"]
+	path = mystery/dependencies/mystery-dependencies
+	url = https://github.com/joaovsq/mystery-dependencies.git

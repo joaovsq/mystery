@@ -11,9 +11,7 @@
 #define BIT(x) (1 << x)
 
 // all project essentials includes
-#include <iostream>
-#include <memory>
-
+#include "myspch.hpp"
 
 namespace mystery {
 	void initialize();
