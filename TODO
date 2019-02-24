@@ -1,3 +1,4 @@
 - Precompiled headers
 
 - Finish the events implementation (decide if we should create a class for each specific event or not)
+	- Window events (window resize, window close, etc)

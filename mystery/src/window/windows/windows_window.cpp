@@ -40,24 +40,112 @@ namespace Mystery {
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
-				
+
 		/* Create a windowed mode window and its OpenGL context */
-		m_Window = glfwCreateWindow(GetWidth(), GetHeight(), m_Props.Title.c_str(), NULL, NULL);
+		m_Window = glfwCreateWindow(GetWidth(), GetHeight(), m_Props.Title.c_str(), nullptr, nullptr);
 
 		if (!m_Window)
 		{
 			this->~WindowsWindow();
 		}
 
-		/* Make the window's context current */
 		glfwMakeContextCurrent(m_Window);
 
-		// TODO: check if this is necessary
-		//glfwSwapInterval(1);
+		glfwSetWindowUserPointer(m_Window, &m_Props);
+		SetVSync(true);
+
+		// when the window size changes
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+			props.Width = width;
+			props.Height = height;
+
+			// @todo trigger a window rezise event
+		});
+
+		// when the window close
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			// @todo trigger window close events
+		});
+
+		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			// @todo
+
+			switch (action)
+			{
+			case GLFW_PRESS:
+			{
+
+				// @todo
+				break;
+			}
+			case GLFW_RELEASE:
+			{
+
+				break;
+			}
+			case GLFW_REPEAT:
+			{
+
+				break;
+			}
+			}
+		});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			// @todo
+		});
+
+		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			// @todo
+			switch (action)
+			{
+			case GLFW_PRESS:
+			{
+
+				break;
+			}
+			case GLFW_RELEASE:
+			{
+
+				break;
+			}
+			}
+		});
+
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			//@todo
+		});
+
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
+		{
+			auto props = *(WindowProps*)glfwGetWindowUserPointer(window);
+
+			//@todo
+		});
+
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		glfwPollEvents();
+		glfwSwapBuffers(m_Window);
 	}
 
 	inline unsigned int WindowsWindow::GetWidth() const
@@ -75,17 +163,22 @@ namespace Mystery {
 		// @todo
 	}
 
-	void WindowsWindow::SetVSync(bool enabled)
+	inline void WindowsWindow::SetVSync(bool enabled)
 	{
-		// @todo
+		if (enabled)
+			glfwSwapInterval(1);
+		else
+			glfwSwapInterval(0);
+
+		m_VSync = enabled;
 	}
 
-	bool WindowsWindow::IsVSync() const
+	inline bool WindowsWindow::IsVSync() const
 	{
-		return false;
+		return m_VSync;
 	}
 
-	void* WindowsWindow::GetNativeWindow() const
+	inline void* WindowsWindow::GetNativeWindow() const
 	{
 		return m_Window;
 	}

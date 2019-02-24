@@ -11,10 +11,12 @@ namespace Mystery {
 	public:
 		MysteryApplication();
 		virtual	~MysteryApplication();
+		
+		void OnEvent();
 		void Run();
 
 	private:
-		bool m_IsRunning;
+		bool m_Running;
 
 		std::unique_ptr<Window> m_MainWindow;
 	};

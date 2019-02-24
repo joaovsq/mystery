@@ -31,6 +31,7 @@ namespace Mystery {
 	//	static WindowsWindow* Create(const WindowProps & windowProps = WindowProps());
 
 	private:
+		bool m_VSync;
 		WindowProps m_Props;
 		GLFWwindow* m_Window;
 
