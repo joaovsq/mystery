@@ -3,7 +3,7 @@
 #include "core.hpp"
 #include "log.hpp"
 
-namespace mystery {
+namespace Mystery {
 
 	class MYSTERY_API MysteryApplication
 	{

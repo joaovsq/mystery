@@ -6,7 +6,7 @@
 #include "core.hpp"
 
 
-namespace mystery {
+namespace Mystery {
 
 	class MYSTERY_API Log
 	{
@@ -26,13 +26,13 @@ namespace mystery {
 }
 
 // core log macros
-#define LOG_INFO(...)		  ::mystery::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define LOG_WARN(...)		  ::mystery::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define LOG_ERROR(...)        ::mystery::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define LOG_INFO(...)		  ::Mystery::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define LOG_WARN(...)		  ::Mystery::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define LOG_ERROR(...)        ::Mystery::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define LOG_FATAL(...)        ::mystery::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 // app log macros
-#define APP_LOG_INFO(...)     ::mystery::Log::GetClientLogger()->info(__VA_ARGS__)
-#define APP_LOG_WARN(...)     ::mystery::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define APP_LOG_ERROR(...)    ::mystery::Log::GetClientLogger()->error(__VA_ARGS__)
-#define APP_LOG_FATAL(...)    ::mystery::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define APP_LOG_INFO(...)     ::Mystery::Log::GetClientLogger()->info(__VA_ARGS__)
+#define APP_LOG_WARN(...)     ::Mystery::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define APP_LOG_ERROR(...)    ::Mystery::Log::GetClientLogger()->error(__VA_ARGS__)
+#define APP_LOG_FATAL(...)    ::Mystery::Log::GetClientLogger()->fatal(__VA_ARGS__)

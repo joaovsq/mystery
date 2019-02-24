@@ -2,7 +2,7 @@
 
 #include<mystery_app.hpp>
 
-class Sandbox : public mystery::MysteryApplication {
+class Sandbox : public Mystery::MysteryApplication {
 
 public:
 	Sandbox();

@@ -1,7 +1,7 @@
 ﻿#include "core.hpp"
 #include "log.hpp"
 
-namespace mystery {
+namespace Mystery {
 
 	// lets initialize all the essentials components
 	void initialize() {

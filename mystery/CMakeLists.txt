@@ -22,8 +22,14 @@ set(MYSTERY_SRC
 	src/core.hpp
 	src/mystery.cpp
 	src/mystery.hpp
-	src/myspch.cpp
-	src/myspch.hpp
+	
+	src/events/Event.hpp
+
+	src/window/window.hpp
+	src/window/windows/windows_window.hpp
+	src/window/windows/windows_window.cpp
+	src/window/windows/windows_input.hpp
+	src/window/windows/windows_input.cpp
 )
 
 # mystery include files (public api)

@@ -13,7 +13,7 @@
 // all project essentials includes
 #include "myspch.hpp"
 
-namespace mystery {
+namespace Mystery {
 	void initialize();
 }
 

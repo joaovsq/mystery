@@ -1,13 +1,11 @@
 ﻿#include "mystery.hpp"
 
-namespace mystery {
+namespace Mystery {
 
 
 	MysteryApplication::MysteryApplication() {
-		
 		// initializes all components
 		initialize();
-
 	}
 
 	MysteryApplication::~MysteryApplication() {
