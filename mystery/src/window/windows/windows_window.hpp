@@ -1,6 +1,5 @@
 #pragma once
 
-#include "core.hpp"
 #include "window/window.hpp"
 
 namespace Mystery {
@@ -8,6 +7,8 @@ namespace Mystery {
 	class WindowsWindow : public Window {
 
 	public:
+		void Init() override;
+
 		void OnUpdate() override;
 
 		inline unsigned int GetWidth() const override;
@@ -21,9 +22,6 @@ namespace Mystery {
 		bool IsVSync() const override;
 
 		void * GetNativeWindow() const override;
-
-	private:
-
 
 	};
 

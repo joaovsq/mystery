@@ -1,26 +1,31 @@
+#include "core.hpp"
 #include "windows_input.hpp"
 
-bool Mystery::WindowsInput::IsKeyPressedImpl(int keycode)
-{
-	return false;
-}
+namespace Mystery {
 
-bool Mystery::WindowsInput::IsMouseButtonPressedImpl(int button)
-{
-	return false;
-}
+	bool Mystery::WindowsInput::IsKeyPressedImpl(int keycode)
+	{
+		return false;
+	}
 
-std::pair<float, float> Mystery::WindowsInput::GetMousePositionImpl()
-{
-	return std::pair<float, float>();
-}
+	bool Mystery::WindowsInput::IsMouseButtonPressedImpl(int button)
+	{
+		return false;
+	}
 
-float Mystery::WindowsInput::GetMouseXImpl()
-{
-	return 0.0f;
-}
+	std::pair<float, float> Mystery::WindowsInput::GetMousePositionImpl()
+	{
+		return std::pair<float, float>();
+	}
 
-float Mystery::WindowsInput::GetMouseYImpl()
-{
-	return 0.0f;
+	float Mystery::WindowsInput::GetMouseXImpl()
+	{
+		return 0.0f;
+	}
+
+	float Mystery::WindowsInput::GetMouseYImpl()
+	{
+		return 0.0f;
+	}
+
 }

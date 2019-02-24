@@ -1,6 +1,5 @@
 #pragma once
 
-#include "core.hpp"
 #include "window/input.hpp"
 
 namespace Mystery {
