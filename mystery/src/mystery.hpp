@@ -2,6 +2,7 @@
 
 #include "core.hpp"
 #include "log.hpp"
+#include "window/window.hpp"
 
 namespace Mystery {
 
@@ -11,6 +12,11 @@ namespace Mystery {
 		MysteryApplication();
 		virtual	~MysteryApplication();
 		void Run();
+
+	private:
+		bool m_IsRunning;
+
+		std::unique_ptr<Window> m_MainWindow;
 	};
 
 }

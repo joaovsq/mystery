@@ -42,18 +42,17 @@ namespace Mystery {
 	template<typename T>
 	class EventDispatcher
 	{
-		// event callback 
-		using EventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
 			: m_Event(event)
 		{
 		}
-		// TODO: REMEMBER TO FIX THIS, THIS IS AN UNSAFE CALLBACK CALL, 
+	
+		// @TODO: REMEMBER TO FIX THIS, THIS IS AN UNSAFE CALLBACK CALL, 
 		// because we can't known if the callback event is the same received in the constructor
-		bool Dispatch(EventFn<T> func)
+		bool Dispatch(std::function<bool(T&)> func)
 		{
-			m_Event.Handled = func(*(T*)&m_Event);
+			//	m_Event.Handled = func(*(T*)&m_Event);
 			return true;
 		}
 

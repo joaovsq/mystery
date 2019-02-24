@@ -10,10 +10,12 @@
 
 #define BIT(x) (1 << x)
 
+#ifdef MYSTERY_PLATFORM_WINDOWS
+#endif
+
 // all project essentials includes
 #include "myspch.hpp"
 
 namespace Mystery {
-	void initialize();
 }
 

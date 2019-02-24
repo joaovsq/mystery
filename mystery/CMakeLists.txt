@@ -25,6 +25,7 @@ set(MYSTERY_SRC
 	
 	src/events/Event.hpp
 
+	src/window/input.hpp
 	src/window/window.hpp
 	src/window/windows/windows_window.hpp
 	src/window/windows/windows_window.cpp

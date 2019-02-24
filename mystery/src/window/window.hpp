@@ -5,21 +5,28 @@
 
 namespace Mystery {
 
+	struct WindowProps
+	{
+		std::string Title;
+		unsigned int Width;
+		unsigned int Height;
+
+		// Default window setup, this may change in the future
+		WindowProps(const std::string& title = "Mystery Engine",
+			unsigned int width = 1280,
+			unsigned int height = 720)
+			: Title(title), Width(width), Height(height) { }
+
+	};
+
 	// Interface representing a desktop system based Window
 	class MYSTERY_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 
-		// Default window setup, this may change in the future
-		Window(const std::string& title = "Mystery Engine",
-			unsigned int width = 1280,
-			unsigned int height = 720)
-			: m_Title(title), m_Width(width), m_Height(height) { }
-
 		virtual ~Window() {}
 
-		virtual void Init() = 0;
 		virtual void OnUpdate() = 0;
 
 		// this may change depending on the platform
@@ -32,12 +39,7 @@ namespace Mystery {
 
 		virtual void* GetNativeWindow() const = 0;
 
-	protected:
-		std::string m_Title;
-		unsigned int m_Width;
-		unsigned int m_Height;
-
-
+		static Window* Create(const WindowProps& windowProps = WindowProps());
 	};
 
 }

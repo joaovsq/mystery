@@ -2,6 +2,8 @@
 #include "windows_input.hpp"
 
 namespace Mystery {
+	
+	Input* Input::s_Instance = new WindowsInput();
 
 	bool Mystery::WindowsInput::IsKeyPressedImpl(int keycode)
 	{

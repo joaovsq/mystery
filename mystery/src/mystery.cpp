@@ -3,9 +3,12 @@
 namespace Mystery {
 
 
+	// lets initialize all the essentials components
 	MysteryApplication::MysteryApplication() {
-		// initializes all components
-		initialize();
+		Log::Init();
+		LOG_INFO("Starting Mystery Engine components...");
+
+		m_MainWindow = std::unique_ptr<Window>(Window::Create());
 	}
 
 	MysteryApplication::~MysteryApplication() {
@@ -13,9 +16,9 @@ namespace Mystery {
 	}
 
 	void MysteryApplication::Run() {
-		LOG_INFO("Mystery Engine starting...");
 		std::cin.get();
 	}
+
 
 
 }

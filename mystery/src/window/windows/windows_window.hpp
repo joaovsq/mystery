@@ -2,12 +2,17 @@
 
 #include "window/window.hpp"
 
+#include <GLFW/glfw3.h>
+
 namespace Mystery {
 
 	class WindowsWindow : public Window {
 
 	public:
-		void Init() override;
+
+		WindowsWindow(const WindowProps& windowProps);
+
+		~WindowsWindow() override;
 
 		void OnUpdate() override;
 
@@ -23,6 +28,13 @@ namespace Mystery {
 
 		void* GetNativeWindow() const override;
 
+	//	static WindowsWindow* Create(const WindowProps & windowProps = WindowProps());
+
+	private:
+		WindowProps m_Props;
+		GLFWwindow* m_Window;
+
+		void Init();
 	};
 
 }
