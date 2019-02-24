@@ -4,39 +4,39 @@
 namespace Mystery {
 
 
-	void Mystery::WindowsWindow::Init()
+	void WindowsWindow::Init()
 	{
 
 	}
 
-	void Mystery::WindowsWindow::OnUpdate()
+	void WindowsWindow::OnUpdate()
 	{
 	}
 
-	inline unsigned int Mystery::WindowsWindow::GetWidth() const
+	inline unsigned int WindowsWindow::GetWidth() const
 	{
-		return;
+		return m_Width;
 	}
 
-	inline unsigned int Mystery::WindowsWindow::GetHeight() const
+	inline unsigned int WindowsWindow::GetHeight() const
 	{
-		return 0;
+		return m_Height;
 	}
 
-	void Mystery::WindowsWindow::SetEventCallback(const EventCallbackFn & callback)
-	{
-	}
-
-	void Mystery::WindowsWindow::SetVSync(bool enabled)
+	void WindowsWindow::SetEventCallback(const EventCallbackFn & callback)
 	{
 	}
 
-	bool Mystery::WindowsWindow::IsVSync() const
+	void WindowsWindow::SetVSync(bool enabled)
+	{
+	}
+
+	bool WindowsWindow::IsVSync() const
 	{
 		return false;
 	}
 
-	void *Mystery::WindowsWindow::GetNativeWindow() const
+	void* WindowsWindow::GetNativeWindow() const
 	{
 		return nullptr;
 	}

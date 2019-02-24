@@ -21,7 +21,7 @@ namespace Mystery {
 
 		bool IsVSync() const override;
 
-		void * GetNativeWindow() const override;
+		void* GetNativeWindow() const override;
 
 	};
 
