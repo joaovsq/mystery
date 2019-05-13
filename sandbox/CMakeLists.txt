@@ -13,6 +13,6 @@ set(SANDBOX_SRC
 add_executable (Sandbox ${SANDBOX_SRC})
 
 # TODO: find a better way to link this dependency
-target_link_libraries(Sandbox ${INSTALL_FOLDER}/mystery.lib)
+target_link_libraries(Sandbox ${INSTALL_FOLDER}/Mystery.dll)
 
 install(TARGETS Sandbox DESTINATION ${INSTALL_FOLDER})

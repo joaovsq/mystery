@@ -2,7 +2,7 @@
 
 #include "core.hpp"
 #include "log.hpp"
-#include "window/window.hpp"
+#include "platform/window.hpp"
 
 namespace Mystery {
 

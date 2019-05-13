@@ -1,21 +1,20 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
 # Compiler definitions / preprocessor defs
-add_compile_definitions(MYSTERY_BUILD_DLL)
+add_compile_definitions(MYSTERY_BUILD_EXE)
 
 IF(WIN32)
 add_compile_definitions(MYSTERY_PLATFORM_WINDOWS)	
 ENDIF()
 
-# project internal files
-include_directories(${CMAKE_SOURCE_DIR}/mystery/src)
-
 # dependencies setup, links are done in the end of this file
-include_directories(dependencies/mystery-dependencies/include)
-set(GLFW_LIB ${CMAKE_SOURCE_DIR}/mystery/dependencies/mystery-dependencies/libs/GLFW/glfw3.lib)
+include_directories(${CMAKE_SOURCE_DIR}/mystery/src)
+include_directories(dependencies/include)
+set(GLFW_LIB ${CMAKE_SOURCE_DIR}/mystery/dependencies/libs/GLFW/glfw3.lib)
 
 # mystery source files
 set(MYSTERY_SRC 
+	main.cpp
 	src/log.cpp
 	src/log.hpp
 	src/core.cpp
@@ -25,12 +24,12 @@ set(MYSTERY_SRC
 	
 	src/events/Event.hpp
 
-	src/window/input.hpp
-	src/window/window.hpp
-	src/window/windows/windows_window.hpp
-	src/window/windows/windows_window.cpp
-	src/window/windows/windows_input.hpp
-	src/window/windows/windows_input.cpp
+	src/platform/input.hpp
+	src/platform/window.hpp
+	src/platform/windows/windows_window.hpp
+	src/platform/windows/windows_window.cpp
+	src/platform/windows/windows_input.hpp
+	src/platform/windows/windows_input.cpp
 )
 
 # mystery include files (public api)
@@ -57,17 +56,14 @@ IF(MSVC)
 	LIST(APPEND ${MYSTERY_SRC} ${PRECOMPILED_SOURCE})
 ENDIF(MSVC)
 
-
-# mystery engine library (for now it is a dll)
-add_library (Mystery SHARED
+# mystery engine library
+add_executable (Mystery
 			${MYSTERY_SRC}
 			${MYSTERY_INCLUDE}
 )
 
-
 # link all necessary libraries
 target_link_libraries(Mystery PRIVATE ${GLFW_LIB})
-
 
 # install targets
 install(TARGETS Mystery DESTINATION ${INSTALL_FOLDER})
