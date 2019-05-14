@@ -6,11 +6,11 @@ namespace Mystery {
 
 	enum class EventType
 	{
-		NONE = 0,
-		WINDOW_CLOSE, WINDOW_RESIZE, WINDOW_FOCUS, WINDOW_LOST_FOCUS, WINDOW_MOVED,
-		APP_TICK, APP_UPDATE, APP_RENDER,
-		KEY_PRESSED, KEY_RELEASED, KEY_TYPED,
-		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, kMOUSE_MOVED, MOUSE_SCROLLED
+		None = 0,
+		WindowClose, WindowResize, WindowMoved,
+		AppUpdate, AppRender,
+		KeyPressed, KeyReleased,
+		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	// this is necessary if we need to enconde multiple flags in a single variable

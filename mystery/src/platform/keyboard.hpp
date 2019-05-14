@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Devices/Window.hpp"
-#include "Engine/Engine.hpp"
+#include "window.hpp"
 
 namespace acid
 {
