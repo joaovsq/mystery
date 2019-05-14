@@ -2,43 +2,28 @@
 
 # Compiler definitions / preprocessor defs
 add_compile_definitions(MYSTERY_BUILD_EXE)
+add_compile_definitions(MYSTERY_DEBUG)
 
 IF(WIN32)
 add_compile_definitions(MYSTERY_PLATFORM_WINDOWS)	
 ENDIF()
 
+
 # dependencies setup, links are done in the end of this file
-include_directories(${CMAKE_SOURCE_DIR}/mystery/src)
-include_directories(dependencies/include)
+include_directories(${CMAKE_SOURCE_DIR}/mystery/src
+					dependencies/include
+)
+
 set(GLFW_LIB ${CMAKE_SOURCE_DIR}/mystery/dependencies/libs/GLFW/glfw3.lib)
 
-# mystery source files
-set(MYSTERY_SRC 
-	main.cpp
-	src/log.cpp
-	src/log.hpp
-	src/core.cpp
-	src/core.hpp
-	src/mystery.cpp
-	src/mystery.hpp
-	
-	src/events/Event.hpp
+# Finds and loads Vulkan, env "VULKAN_SDK" must be set
+find_package(Vulkan REQUIRED)
 
-	src/platform/input.hpp
-	src/platform/window.hpp
-	src/platform/windows/windows_window.hpp
-	src/platform/windows/windows_window.cpp
-	src/platform/windows/windows_input.hpp
-	src/platform/windows/windows_input.cpp
-)
+# This uses target_sources to define its headers & source files
+include(CMakeSources.cmake)
 
-# mystery include files (public api)
-set(MYSTERY_INCLUDE 
-	mystery_app.hpp
-)
-
-set(PRECOMPILED_HEADER myspch.hpp)
-set(PRECOMPILED_SOURCE myspch.cpp)
+set(PRECOMPILED_HEADER StdAfx.hpp)
+set(PRECOMPILED_SOURCE StdAfx.cpp)
 
 # precompiled headers setup
 IF(MSVC)
@@ -56,14 +41,17 @@ IF(MSVC)
 	LIST(APPEND ${MYSTERY_SRC} ${PRECOMPILED_SOURCE})
 ENDIF(MSVC)
 
-# mystery engine library
+# mystery engine 
 add_executable (Mystery
 			${MYSTERY_SRC}
 			${MYSTERY_INCLUDE}
 )
 
 # link all necessary libraries
-target_link_libraries(Mystery PRIVATE ${GLFW_LIB})
+target_link_libraries(Mystery PRIVATE 
+							${GLFW_LIB}
+							Vulkan::Vulkan
+)
 
 # install targets
 install(TARGETS Mystery DESTINATION ${INSTALL_FOLDER})

@@ -18,7 +18,7 @@
 #endif
 
 // all project essentials includes
-#include "myspch.hpp"
+#include "StdAfx.hpp"
 
 namespace Mystery {
 }
